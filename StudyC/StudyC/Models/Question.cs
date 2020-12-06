@@ -8,26 +8,21 @@ namespace StudyC.Models
 {
     public class Question
     {
-        public int id { get; set; }
-        public int correctAnswer { get; set; }
-        public bool IScorrectAnswer { get; set; }
-        [Required]
-        [StringLength(50)]
-        public String question { get; set; }
-        [Required]
-        [StringLength(100)]
+        public int Id { get; set; }
+       
+        public int CorrectAnswer { get; set; }
 
-        public String option1 { get; set; }
         [Required]
-        [StringLength(100)]
-        public String option2 { get; set; }
+        [StringLength(500)]
+        public String Questions { get; set; }
+        
         [Required]
-        [StringLength(100)]
-        public String option3 { get; set; }
-        [Required]
-        [StringLength(100)]
-        public String option4 { get; set; }
-        public Quiz q { get; set; }
+        [StringLength(1000)]
+        public Array Options { get; set; }
+
+        public int NumOfOptions { get; set; }
+        
+       
 
     }
 }

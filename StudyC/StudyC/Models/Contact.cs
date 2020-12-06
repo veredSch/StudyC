@@ -9,18 +9,22 @@ namespace StudyC.Models
 {
     public class Contact
     {
-        public int id { get; set; }
+        public int Id { get; set; }
+
         [Required]
         [StringLength(30)]
-        public String userName { get; set; }
+        public String UserName { get; set; }
+        
         [Required]
-        [In('@')]
-        public String mail { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public String Mail { get; set; }
+
         [Required]
         [StringLength(50)]
-        public String subject { get; set; }
+        public String Subject { get; set; }
+
         [Required]
-        [StringLength(100)]
-        public String message { get; set; }
+        [StringLength(300)]
+        public String Message { get; set; }
     }
 }

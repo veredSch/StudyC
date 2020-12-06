@@ -6,20 +6,18 @@ using System.Threading.Tasks;
 
 namespace StudyC.Models
 {
-    public class Exercise
+    public class Study
     {
         public int Id { get; set; }
 
         [Required]
-        [StringLength(1000)]
-        public String Question { get; set; }
+        [StringLength(300)]
+        public String Subject { get; set; }
 
         [Required]
-        [StringLength(1000)]
-        public String Answer { get; set; }
+        [StringLength(1500)]
+        public String Information { get; set; }
 
-        public Study St { get; set; }
-
-
+        public List<Exercise> Exercises { get; set; }
     }
 }

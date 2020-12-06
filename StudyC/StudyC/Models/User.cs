@@ -9,19 +9,25 @@ namespace StudyC.Models
 {
     public class User
     {
-        public int id { get; set; }
+       
+        public int Id { get; set; }
+
         [Required]
         [StringLength(30)]
-        public String userName { get; set; }
-        [Required]
-        [Range(6, 8)]
-        public int password { get; set; }
-        [Required]
-        [In('@')]
-        public String mail { get; set; }
-        [Range(0, 100)]
-        public int grade { get; set; }
+        public String UserName { get; set; }
 
-        public String diploma { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        [Range(6, 8)]
+        public int Password { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public String Mail { get; set; }
+
+        [Range(0, 100)]
+        public int Grade { get; set; }
+
     }
 }
