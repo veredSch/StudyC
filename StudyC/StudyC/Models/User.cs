@@ -12,22 +12,21 @@ namespace StudyC.Models
        
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "must input username")]
         [StringLength(30)]
         public String UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "must input password")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         [Range(6, 8)]
         public int Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "must input mail adress")]
         [DataType(DataType.EmailAddress)]
         public String Mail { get; set; }
 
-        [Range(0, 100)]
-        public int Grade { get; set; }
+        public List<UserStudy> UserStudy { get; set; }
 
     }
 }
