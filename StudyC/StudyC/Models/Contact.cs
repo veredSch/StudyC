@@ -11,20 +11,24 @@ namespace StudyC.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "must input username")]
         [StringLength(30)]
         public String UserName { get; set; }
-        
-        [Required]
+
+        [Required(ErrorMessage = "must input Number Required")]
+        [DataType(DataType.PhoneNumber)]
+        public String Mobile { get; set; }
+
+        [Required(ErrorMessage = "must input mail adress")]
         [DataType(DataType.EmailAddress)]
         public String Mail { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "must input subject adress")]
         [StringLength(50)]
         public String Subject { get; set; }
 
-        [Required]
-        [StringLength(300)]
+        [Required(ErrorMessage = "must input Message adress")]
+        [StringLength(400)]
         public String Message { get; set; }
     }
 }

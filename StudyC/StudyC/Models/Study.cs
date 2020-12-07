@@ -10,14 +10,16 @@ namespace StudyC.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="must input a subject")]
         [StringLength(300)]
         public String Subject { get; set; }
 
-        [Required]
-        [StringLength(1500)]
+        [Required(ErrorMessage = "must input information")]
+        [StringLength(20000)]
         public String Information { get; set; }
 
-        public List<Exercise> Exercises { get; set; }
+        public List<Question> Question { get; set; }
+
+        public List<UserStudy> UserStudy { get; set; }
     }
 }

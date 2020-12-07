@@ -20,9 +20,12 @@ namespace StudyC.Models
         [StringLength(1000)]
         public Array Options { get; set; }
 
+        [Required]
         public int NumOfOptions { get; set; }
-        
        
+        public Study Study { get; set; }
+
+
 
     }
 }
