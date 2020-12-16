@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,9 +17,10 @@ namespace StudyC.Models
         [StringLength(500)]
         public String Questions { get; set; }
         
-        [Required]
+       [Required]
         [StringLength(1000)]
-        public Array Options { get; set; }
+        [NotMapped]
+       public String[] Options { get; set; }
 
         [Required]
         public int NumOfOptions { get; set; }

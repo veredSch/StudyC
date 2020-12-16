@@ -13,7 +13,7 @@ namespace StudyC.Data
             : base(options)
         {
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+      protected override void OnModelCreating(ModelBuilder modelBuilder)
         { modelBuilder.Entity<UserStudy>()
                 .HasKey(pr => new { pr.UserId, pr.StudyId });
           modelBuilder.Entity<UserStudy>()
@@ -25,5 +25,9 @@ namespace StudyC.Data
                 .WithMany(t => t.UserStudy)
                 .HasForeignKey(pt => pt.StudyId); }
         public DbSet<StudyC.Models.Contact> Contact { get; set; }
+        public DbSet<StudyC.Models.User> User { get; set; }
+        public DbSet<StudyC.Models.Question> Question { get; set; }
+        public DbSet<StudyC.Models.Study> Study { get; set; }
+        public DbSet<StudyC.Models.UserStudy> UserStudy { get; set; }
     }
 }
