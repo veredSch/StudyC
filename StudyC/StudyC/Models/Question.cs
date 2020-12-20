@@ -17,7 +17,7 @@ namespace StudyC.Models
         [StringLength(500)]
         public String Questions { get; set; }
         
-       [Required]
+        [Required]
         [StringLength(1000)]
         [NotMapped]
        public String[] Options { get; set; }
