@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="~/css/style_nav.css">
+    @RenderSection("Css", required: false)
 </head>
 <body dir="rtl">
     <header>
-        <nav class="navbar">
+        <nav class="navbar1">
             <span class="navbar-toggle" id="js-navbar-toggle">
                 <i class="fas fa-bars"></i>
             </span>
-            <a href="home.html" class="logo"><img src="img/logo.png" width="52%" height="20%" alt="logo"></a>
+            <a href="home.html" class="logo"><img src="~/img/logo.png" alt="logo"></a>
             <ul class="main-nav" id="js-menu">
                 <li>
                     <a href="#" class="nav-links active">דף הבית</a>
@@ -42,25 +43,7 @@
                 </li>
             </ul>
         </nav>
-        <!--nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StudyC</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </!--nav>-->
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -68,23 +51,7 @@
         </main>
     </div>
 
-    <!--footer-- class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - StudyC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </!--footer-->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)-->
-
-
-
-
-
-
     <script>
-
         function includeHTML() {
             var z, i, elmnt, file, xhttp;
             /*loop through a collection of all HTML elements:*/
@@ -120,9 +87,7 @@
     <script>
         let mainNav = document.getElementById('js-menu');
         let navBarToggle = document.getElementById('js-navbar-toggle');
-
         navBarToggle.addEventListener('click', function () {
-
             mainNav.classList.toggle('active');
         });
     </script>
@@ -130,12 +95,9 @@
     <script src="~/https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script defer src="~/https://use.fontawesome.com/releases/v5.0.13/js/all.js" crossorigin="anonymous"></script>
     <script src="~/main.js"></script>
-
-
-
-
-
-
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
 </body>
 </html>
