@@ -24,6 +24,26 @@
         </dd>
     </dl>
 </div>
+@foreach (var item in Model.Question)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+            @foreach (var item2 in item.Options)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item2.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item2.IsCorrect)
+            </td>           
+        </tr>
+    }
+            </td>
+
+            </tr>
+        }
 @*<div>
         <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
         <a asp-action="Index">Back to List</a>

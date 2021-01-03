@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudyC.Data;
 
 namespace StudyC.Migrations
 {
     [DbContext(typeof(StudyCContext))]
-    partial class StudyCContextModelSnapshot : ModelSnapshot
+    [Migration("20210103172624_options")]
+    partial class options
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,9 +62,6 @@ namespace StudyC.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("IsCorrect")
-                        .HasColumnType("bit");
-
                     b.Property<int?>("QuestionId")
                         .HasColumnType("int");
 
@@ -83,13 +82,19 @@ namespace StudyC.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("StudyId")
+                    b.Property<int>("CorrectAnswer")
                         .HasColumnType("int");
 
-                    b.Property<string>("Text")
+                    b.Property<int>("NumOfOptions")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Questions")
                         .IsRequired()
                         .HasColumnType("nvarchar(500)")
                         .HasMaxLength(500);
+
+                    b.Property<int?>("StudyId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

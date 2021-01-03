@@ -10,22 +10,22 @@ using StudyC.Models;
 
 namespace StudyC.Controllers
 {
-    public class QuestionsController : Controller
+    public class OptionsController : Controller
     {
         private readonly StudyCContext _context;
 
-        public QuestionsController(StudyCContext context)
+        public OptionsController(StudyCContext context)
         {
             _context = context;
         }
 
-        // GET: Questions
+        // GET: Options
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Question.ToListAsync());
+            return View(await _context.Option.ToListAsync());
         }
 
-        // GET: Questions/Details/5
+        // GET: Options/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace StudyC.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Question.Include(x=>x.Options)
+            var option = await _context.Option
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (question == null)
+            if (option == null)
             {
                 return NotFound();
             }
 
-            return View(question);
+            return View(option);
         }
 
-        // GET: Questions/Create
+        // GET: Options/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Questions/Create
+        // POST: Options/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CorrectAnswer,Questions,NumOfOptions")] Question question)
+        public async Task<IActionResult> Create([Bind("Id,Text,IsCorrect")] Option option)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(question);
+                _context.Add(option);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(question);
+            return View(option);
         }
 
-        // GET: Questions/Edit/5
+        // GET: Options/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace StudyC.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Question.FindAsync(id);
-            if (question == null)
+            var option = await _context.Option.FindAsync(id);
+            if (option == null)
             {
                 return NotFound();
             }
-            return View(question);
+            return View(option);
         }
 
-        // POST: Questions/Edit/5
+        // POST: Options/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CorrectAnswer,Questions,NumOfOptions")] Question question)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Text,IsCorrect")] Option option)
         {
-            if (id != question.Id)
+            if (id != option.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace StudyC.Controllers
             {
                 try
                 {
-                    _context.Update(question);
+                    _context.Update(option);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!QuestionExists(question.Id))
+                    if (!OptionExists(option.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace StudyC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(question);
+            return View(option);
         }
 
-        // GET: Questions/Delete/5
+        // GET: Options/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace StudyC.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Question
+            var option = await _context.Option
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (question == null)
+            if (option == null)
             {
                 return NotFound();
             }
 
-            return View(question);
+            return View(option);
         }
 
-        // POST: Questions/Delete/5
+        // POST: Options/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var question = await _context.Question.FindAsync(id);
-            _context.Question.Remove(question);
+            var option = await _context.Option.FindAsync(id);
+            _context.Option.Remove(option);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool QuestionExists(int id)
+        private bool OptionExists(int id)
         {
-            return _context.Question.Any(e => e.Id == id);
+            return _context.Option.Any(e => e.Id == id);
         }
     }
 }

@@ -29,5 +29,6 @@ namespace StudyC.Data
         public DbSet<StudyC.Models.Question> Question { get; set; }
         public DbSet<StudyC.Models.Study> Study { get; set; }
         public DbSet<StudyC.Models.UserStudy> UserStudy { get; set; }
+        public DbSet<StudyC.Models.Option> Option { get; set; }
     }
 }

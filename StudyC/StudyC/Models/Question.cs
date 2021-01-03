@@ -11,19 +11,16 @@ namespace StudyC.Models
     {
         public int Id { get; set; }
        
-        public int CorrectAnswer { get; set; }
+        
 
         [Required]
         [StringLength(500)]
-        public String Questions { get; set; }
+        public string Text { get; set; }
         
         [Required]
-        [StringLength(1000)]
-        [NotMapped]
-       public String[] Options { get; set; }
+        [StringLength(1000)]        
+       public List<Option> Options { get; set; }
 
-        [Required]
-        public int NumOfOptions { get; set; }
        
         public Study Study { get; set; } 
 

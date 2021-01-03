@@ -1,4 +1,4 @@
-﻿@model IEnumerable<StudyC.Models.Question>
+﻿@model IEnumerable<StudyC.Models.Option>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,7 +14,10 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Text)
-            </th>            
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCorrect)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -23,7 +26,10 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Text)
-            </td>            
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCorrect)
+            </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

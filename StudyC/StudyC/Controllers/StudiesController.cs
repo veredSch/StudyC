@@ -41,7 +41,7 @@ namespace StudyC.Controllers
                 return NotFound();
             }
 
-            var study = await _context.Study
+            var study = await _context.Study.Include(x=> x.Question).ThenInclude(x => x.Options)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (study == null)
             {
