@@ -24,6 +24,14 @@ namespace StudyC.Controllers
         {
             return View(await _context.Study.ToListAsync());
         }
+        [HttpPost]
+        public async Task<IActionResult> Search(String Search)
+        {
+            var p = from S in _context.Study
+                    where S.Subject.Contains(Search) || S.Information.Contains(Search)
+                    select S;
+            return View(await p.ToListAsync());
+        }
 
         // GET: Studies/Details/5
         public async Task<IActionResult> Details(int? id)

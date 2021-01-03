@@ -1,25 +1,27 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - StudyC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/site.css" />
-   <link rel="stylesheet" href="~/https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="~/css/style_nav.css">
     @RenderSection("Css", required: false)
+
 </head>
 <body dir="rtl">
     <header>
-        <div w3-include-html asp-area="" asp-controller="Users" asp-action="Create"></div>
-        <nav class="navbar1">
+        <nav class="navbar">
             <span class="navbar-toggle" id="js-navbar-toggle">
                 <i class="fas fa-bars"></i>
             </span>
-            <a href="home.html" class="logo"><img src="~/img/logo.png" alt="logo"></a>
+            <a href="home.html" class="logo"><img src="~/img/logo.png" width="60%" height="30%" alt="logo"></a>
             <ul class="main-nav" id="js-menu">
                 <li>
                     <a href="#" class="nav-links active">דף הבית</a>
@@ -28,17 +30,17 @@
                     <a href="about.html" class="nav-links">אודות</a>
                 </li>
                 <li>
-                    <a  href="#" class="nav-links">לימוד</a>
+                    <a href="what_learn.html" class="nav-links">לימוד</a>
                 </li>
                 <li>
-                    <a class="nav-links" asp-area="" asp-controller="Contacts" asp-action="Create">צור קשר</a>
+                    <a href="contact.html" class="nav-links">צור קשר</a>
                 </li>
                 <li>
-                    <a class="nav-links" onclick="document.getElementById('id02').style.display='block'">הירשם/התחבר</a>
+                    <a href="contact.html" class="nav-links">הירשם/התחבר</a>
                 </li>
                 <li>
-                    <form class="formNav" action="">
-                        <input class="inputNav" type="search">
+                    <form class="formNav" asp-controller="Studies" asp-action="Search" >
+                        <input class="inputNav" type="search" name="Search" placeholder="חיפוש">
                         <i class="fa fa-search"></i>
                     </form>
                 </li>
@@ -46,6 +48,8 @@
         </nav>
 
     </header>
+  
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -53,52 +57,21 @@
     </div>
 
     <script>
-        function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            /*loop through a collection of all HTML elements:*/
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                /*search for elements with a certain atrribute:*/
-                file = elmnt.getAttribute("w3-include-html");
-                if (file) {
-                    /*make an HTTP request using the attribute value as the file name:*/
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4) {
-                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
-                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-                            /*remove the attribute, and call this function once more:*/
-                            elmnt.removeAttribute("w3-include-html");
-                            includeHTML();
-                        }
-                    }
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    /*exit the function:*/
-                    return;
-                }
-            }
-        };
-    </script>
+        let mainNav = document.getElementById("js-menu");
+        let navBarToggle = document.getElementById("js-navbar-toggle");
 
-    <script>
-        includeHTML();
-    </script>
-    <script>
-        let mainNav = document.getElementById('js-menu');
-        let navBarToggle = document.getElementById('js-navbar-toggle');
-        navBarToggle.addEventListener('click', function () {
-            mainNav.classList.toggle('active');
-        });
-    </script>
-    <script src="~/https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="~/https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script defer src="~/https://use.fontawesome.com/releases/v5.0.13/js/all.js" crossorigin="anonymous"></script>
-    <script src="~/main.js"></script>
+        navBarToggle.addEventListener("click", function () {
+            mainNav.classList.toggle("active");
+        });</script>
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" crossorigin="anonymous"></script>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
+
+    @RenderSection("scripts", required: false)
 </body>
 </html>
