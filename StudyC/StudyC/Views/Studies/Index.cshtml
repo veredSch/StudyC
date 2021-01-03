@@ -4,13 +4,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+@*<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+
+<div class="what-learn">
+    <img src="~/img/what.png" width="25%" height="25%" alt="what learn"></img>
+</div>
+
+@*<table class="table">*@
+
+@*<thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Subject)
@@ -20,22 +26,31 @@
             </th>
             <th></th>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subject)
-            </td>
-            <td>
+    </thead>*@
+@*<tbody>*@
+<div class="grid">
+    @foreach (var item in Model)
+    {
+
+
+        @*@Html.DisplayFor(modelItem => item.Subject)*@
+        <button class="bu"><b>@Html.DisplayFor(modelItem => item.Subject)</b></button>
+
+
+        @*<td>
                 @Html.DisplayFor(modelItem => item.Information)
-            </td>
-            <td>
+            </td>*@
+        @*<td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+            </td>*@
+
+    }
+</div>
+@*</tbody>
+    </table>*@
+
+@section Css{
+    <link rel="stylesheet" href="~/css/studies/index.css">
 }
-    </tbody>
-</table>
