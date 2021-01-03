@@ -1,0 +1,12 @@
+﻿body {
+}
+
+.row {
+    margin-right: 60px;
+    font-size: 25px;
+    color: rgb(179, 135, 209);
+    text-decoration: underline;
+    direction: rtl;
+    text-align: right;
+}
+
