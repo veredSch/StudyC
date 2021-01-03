@@ -25,7 +25,7 @@ namespace StudyC.Models
         [Required]
         public int NumOfOptions { get; set; }
        
-        public Study Study { get; set; }
+        public Study Study { get; set; } 
 
 
 

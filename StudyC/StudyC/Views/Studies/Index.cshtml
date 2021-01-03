@@ -34,7 +34,8 @@
 
 
         @*@Html.DisplayFor(modelItem => item.Subject)*@
-        <button class="bu"><b>@Html.DisplayFor(modelItem => item.Subject)</b></button>
+
+        <button class="bu" asp-action="Details" asp-route-id="@item.Id"><b>@Html.DisplayFor(modelItem => item.Subject)</b></button>
 
 
         @*<td>
