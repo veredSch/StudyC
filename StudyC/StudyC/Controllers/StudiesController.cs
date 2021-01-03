@@ -24,6 +24,10 @@ namespace StudyC.Controllers
         {
             return View(await _context.Study.ToListAsync());
         }
+        public async Task<IActionResult> Users()
+        {
+            return View(await _context.Study.Include(x =>x.UserStudy).ThenInclude(x=>x.User).ToListAsync());
+        }
         [HttpPost]
         public async Task<IActionResult> Search(String Search)
         {
