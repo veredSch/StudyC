@@ -10,44 +10,28 @@
         <a asp-action="Create">Create New</a>
     </p>*@
 
-<div class="what-learn">
-    <img src="~/img/what.png" width="25%" height="25%" alt="what learn"></img>
-</div>
 
-@*<table class="table">*@
+<div class="container">
+    <div class="row">
 
-@*<thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Subject)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Information)
-            </th>
-            <th></th>
-        </tr>
-    </thead>*@
-@*<tbody>*@
-<div class="grid">
-    @foreach (var item in Model)
-    {
+        <div class="col-6">
+            <div class="what-learn">
+                <img src="~/img/what.png" width="25%" height="25%" alt="what learn"></img>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-4 col-sm-2">
+
+            @foreach (var item in Model)
+            {
+                <button class="bu" asp-action="Details" asp-route-id="@item.Id"><b>@Html.DisplayFor(modelItem => item.Subject)</b></button>
+
+            }
+
+        </div>
 
 
-        @*@Html.DisplayFor(modelItem => item.Subject)*@
-
-        <button class="bu" asp-action="Details" asp-route-id="@item.Id"><b>@Html.DisplayFor(modelItem => item.Subject)</b></button>
-
-
-        @*<td>
-                @Html.DisplayFor(modelItem => item.Information)
-            </td>*@
-        @*<td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>*@
-
-    }
+    </div>
 </div>
 @*</tbody>
     </table>*@
