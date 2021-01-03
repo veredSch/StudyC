@@ -12,18 +12,20 @@ namespace StudyC.Models
        
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "must input username")]
+        [Required(ErrorMessage = "דרש להכניס שם משתמש")]
         [StringLength(30)]
+        [Display(Name = "שם משתמש")]
         public String UserName { get; set; }
 
-        [Required(ErrorMessage = "must input password")]
+        [Required(ErrorMessage = "דרוש להכניס סיסמא")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        [Range(6, 8)]
+        //[Range(6,8)]
+        [Display(Name ="סיסמא")]
         public int Password { get; set; }
 
-        [Required(ErrorMessage = "must input mail adress")]
+        [Required(ErrorMessage = "דרוש להכניס כתובת מייל")]
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "כתובת מייל")]
         public String Mail { get; set; }
 
         public List<UserStudy> UserStudy { get; set; }

@@ -64,6 +64,37 @@ namespace StudyC.Controllers
             }
             return View(user);
         }
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        // POST: Users/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login([Bind("Id,UserName,Password,Mail")] User user)
+        {
+            var q = from u in _context.User
+                    where user.UserName == u.UserName && user.Password == u.Password
+                    select u;
+            if (q.Count() > 0) 
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                ViewData["Error"] = "המשתמש אינו קיים";
+            }
+            return View();
+
+        }
+
+
+
+
+
 
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)

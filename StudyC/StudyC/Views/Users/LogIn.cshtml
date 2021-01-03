@@ -11,11 +11,12 @@
     @*<div class="row">
         <div class="col-md-4">*@
             @*<div id="id02" class="modal">*@
-            <form asp-action="Create" class="modal-content animate">
+            <form asp-action="Login" class="modal-content animate">
                 <span onclick="document.getElementById('id02').style.display='none'" class="closeLI"
                       title="סגור">&times;</span>
                 <div class="imgcontainer">
-                    <img src="~/img/logo.png" alt="Logo" class="avatar">
+      
+                    <img src="~/img/logo.png" alt="Logo" class="avatarLI">
                 </div>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="containerLI">
@@ -23,29 +24,38 @@
                     <input asp-for="UserName" placeholder="הכנס שם משתמש" class="form-control" />
                     <span asp-validation-for="UserName" class="text-danger"></span>
                     @*</div>
-                    <div class="containerLI">*@
-                    <label asp-for="Mail" class="control-label"></label>
-                    <input asp-for="Mail" placeholder="הכנס כתובת מייל" class="form-control" />
-                    <span asp-validation-for="Mail" class="text-danger"></span>
+        <div class="containerLI">*@
+                    @*<label asp-for="Mail" class="control-label"></label>
+        <input asp-for="Mail" placeholder="הכנס כתובת מייל" class="form-control" />
+        <span asp-validation-for="Mail" class="text-danger"></span>*@
                     @*</div>
-                    <div class="containerLI">*@
+        <div class="containerLI">*@
                     <label asp-for="Password" class="control-label"></label>
                     <input asp-for="Password" placeholder="הכנס סיסמא" class="form-control" />
                     <span asp-validation-for="Password" class="text-danger"></span>
-                @*</div>*@
-                <label id="checkLI">
-                    <input type="checkbox" checked="checked" name="remember"> זכור אותי
-                </label>
-                <div class="form-group">
-                    <input type="submit" value="הירשם" class="buttonLI" />
+                    @*</div>*@
+                    <label id="checkLI">
+                        <input type="checkbox" checked="checked" name="remember"> זכור אותי
+                    </label>
+                    <div class="form-group">
+                        <input type="submit" value="התחבר" class="buttonLI" />
+                    </div>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <div class="errorView">@ViewData["Error"]</div>
+
+                    }
+                    <span class="pswLI">שכחת <a class="link_buttonLI" href="#">סיסמא?</a></span>
                 </div>
-        </div>
-        <div class="containerLI1" style="background-color:#f1f1f1">
-            <span class="pswLI">ביצירת חשבון אתה מסכים לכול <a class="link_buttonLI" asp-area="" asp-controller="Home" asp-action="Privacy">התנאים והפרטיות</a></span>
-            <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                    class="cancelbtnLI">
-                ביטול
-            </button>
+                <div class="containerLID">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                            class="cancelbtnLI">
+                        ביטול
+                    </button>
+                    <span class="pswLI">
+                        אין לך חשבון עדיין? <a class="link_buttonLI"
+                                             asp-action="Create" style="width:auto;">הירשם</a>
+                    </span>
         </div>
         </form>
     @*</div>

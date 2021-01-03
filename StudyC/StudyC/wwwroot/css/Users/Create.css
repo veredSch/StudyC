@@ -1,0 +1,183 @@
+﻿/* The Modal (background) */
+body {
+    font-family: 'Assistant', sans-serif;
+    direction: rtl !important;
+}
+/*  input fields */
+input {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 5px 0 4%;
+    /*display: inline-block;*/
+    border: 1px solid rgb(27, 23, 23) !important;
+    /*box-sizing: border-box;*/
+}
+    input[type=checkbox], input[type=radio] {
+        padding: 0;
+        width: 12px;
+       
+    }
+
+/* Set a style for all buttons */
+.buttonLI {
+    background-color: #4986fc;
+    color: white;
+    padding: 15px;
+    margin-top:15px;
+    /*margin:auto;*/
+    border: none !important;
+    cursor: pointer;
+    width: 100%;
+}
+.form-control {
+    direction: rtl;
+    /*float: center;*/
+    
+}
+.buttonLI:hover {
+    opacity: 0.8;
+}
+label {
+    float: right;
+    font-weight: bold;
+    /*display: inline-block;*/
+    margin-bottom: .5rem;
+}
+/* Extra styles for the cancel button */
+.cancelbtnLI {
+    direction: ltr;
+    float: left;
+    width: auto;
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+    background-color: #f44336;
+    color: white;
+}
+
+    .cancelbtnLI:hover {
+        opacity: 0.8;
+    }
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 20px 0;
+    position: relative;
+}
+.errorView{
+    color:red;
+    font-weight:bold;
+}
+
+.imgcontainer1 {
+    text-align: center;
+    margin: 24px 0 120px 0;
+    position: relative;
+}
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+img.avatarLI {
+    width: 40%;
+    border-radius: 50%;
+    margin: 0 0px 50px;
+}
+
+.containerLI {
+    padding:0px 40px 0px 40px;
+    margin: 0px 0px 0px 0px;
+}
+
+.containerLI1 {
+    padding: 40px;
+    margin: 0px 0px 0px 0px;
+}
+
+.containerLID {
+    background-color: #f1f1f1;
+    padding: 40px;
+}
+
+span.pswLI {
+    float: right;
+    padding-top: 0px;
+}
+
+.checkLI {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 500px;
+    height: 650px; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.closeLI {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    float: right;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+    /* Close button on hover */
+    .closeLI:hover,
+    .closeLI:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+.link_buttonLI {
+    color: #4986fced;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}

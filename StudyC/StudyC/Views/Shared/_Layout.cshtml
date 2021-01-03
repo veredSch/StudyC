@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="~libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+   <link rel="stylesheet" href="~/https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="~/css/style_nav.css">
     @RenderSection("Css", required: false)
 </head>
 <body dir="rtl">
     <header>
+        <div w3-include-html asp-area="" asp-controller="Users" asp-action="Create"></div>
         <nav class="navbar1">
             <span class="navbar-toggle" id="js-navbar-toggle">
                 <i class="fas fa-bars"></i>
@@ -27,13 +28,13 @@
                     <a href="about.html" class="nav-links">אודות</a>
                 </li>
                 <li>
-                    <a href="what_learn.html" class="nav-links">לימוד</a>
+                    <a  href="#" class="nav-links">לימוד</a>
                 </li>
                 <li>
-                    <a href="contact.html" class="nav-links">צור קשר</a>
+                    <a class="nav-links" asp-area="" asp-controller="Contacts" asp-action="Create">צור קשר</a>
                 </li>
                 <li>
-                    <a class="nav-links" onclick="document.getElementById('id01').style.display='block'">הירשם/התחבר</a>
+                    <a class="nav-links" onclick="document.getElementById('id02').style.display='block'">הירשם/התחבר</a>
                 </li>
                 <li>
                     <form class="formNav" action="">

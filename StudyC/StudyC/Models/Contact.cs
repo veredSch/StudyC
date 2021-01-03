@@ -26,7 +26,7 @@ namespace StudyC.Models
         [Display(Name = "מייל")]
         public String Mail { get; set; }
 
-        [Required(ErrorMessage = "דרוש להכניס נושא")]
+        //[Required(ErrorMessage = "דרוש להכניס נושא")]
         [StringLength(50)]
         [Display(Name = "נושא")]
         public String Subject { get; set; }
