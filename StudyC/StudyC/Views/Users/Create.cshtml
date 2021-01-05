@@ -8,64 +8,70 @@
 
     <h4>User</h4>
     <hr />*@
-    @*<div class="row">
-        <div class="col-md-4">*@
-            @*<div id="id02" class="modal">*@
-            <form asp-action="Create" class="modal-content animate">
-                <span onclick="document.getElementById('id02').style.display='none'" class="closeLI"
-                      title="סגור">&times;</span>
-                <div class="imgcontainer">
-                    <img src="~/img/logo.png" alt="Logo" class="avatar">
-                </div>
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="containerLI">
-                    <label asp-for="UserName" class="control-label"></label>
-                    <input asp-for="UserName" placeholder="הכנס שם משתמש" class="form-control" />
-                    <span asp-validation-for="UserName" class="text-danger"></span>
-                    @*</div>
-                    <div class="containerLI">*@
-                    <label asp-for="Mail" class="control-label"></label>
-                    <input asp-for="Mail" placeholder="הכנס כתובת מייל" class="form-control" />
-                    <span asp-validation-for="Mail" class="text-danger"></span>
-                    @*</div>
-                    <div class="containerLI">*@
-                    <label asp-for="Password" class="control-label"></label>
-                    <input asp-for="Password" placeholder="הכנס סיסמא" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                @*</div>*@
-                <label id="checkLI">
-                    <input type="checkbox" checked="checked" name="remember"> זכור אותי
-                </label>
-                <div class="form-group">
-                    <input type="submit" value="הירשם" class="buttonLI" />
-                </div>
+@*<div class="row">
+    <div class="col-md-4">*@
+@*<div id="id02" class="modal">*@
+<form asp-action="Create" class="modal-content animate">
+    <span onclick="document.getElementById('id02').style.display='none'" class="closeLI"
+          title="סגור">&times;</span>
+    <div class="imgcontainer">
+        <img src="~/img/logo.png" alt="Logo" class="avatar">
+    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="containerLI">
+        <label asp-for="UserName" class="control-label"></label>
+        <input asp-for="UserName" placeholder="הכנס שם משתמש" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+        @*</div>
+            <div class="containerLI">*@
+        <label asp-for="Mail" class="control-label"></label>
+        <input asp-for="Mail" placeholder="הכנס כתובת מייל" class="form-control" />
+        <span asp-validation-for="Mail" class="text-danger"></span>
+        @*</div>
+            <div class="containerLI">*@
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" placeholder="הכנס סיסמא" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+        @*</div>*@
+        <label id="checkLI">
+            <input type="checkbox" checked="checked" name="remember"> זכור אותי
+        </label>
+        <div class="form-group">
+            <input type="submit" value="הירשם" class="buttonLI" />
         </div>
-        <div class="containerLI1" style="background-color:#f1f1f1">
-            <span class="pswLI">ביצירת חשבון אתה מסכים לכול <a class="link_buttonLI" asp-area="" asp-controller="Home" asp-action="Privacy">התנאים והפרטיות</a></span>
-            <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                    class="cancelbtnLI">
-                ביטול
-            </button>
-        </div>
-        </form>
-    @*</div>
-</div>*@
+        @if (ViewData["Error"] != null)
+        {
+            <div class="errorView">@ViewData["Error"]</div>
 
-@*<div>
-    <a asp-action="Index">Back to List</a>
-</div>*@
-@section Css{
-    <link rel="stylesheet" href="~/css/Users/Create.css"/>
+        }
+    </div>
+    <div class="containerLI1" style="background-color:#f1f1f1">
+        <span class="pswLI">ביצירת חשבון אתה מסכים לכול <a class="link_buttonLI" asp-area="" asp-controller="Home" asp-action="Privacy">התנאים והפרטיות</a></span>
+        <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                class="cancelbtnLI">
+            ביטול
+        </button>
+    </div>
+</form>
+
+    @*</div>
+        </div>*@
+
+    @*<div>
+            <a asp-action="Index">Back to List</a>
+        </div>*@
+    @section Css{
+        <link rel="stylesheet" href="~/css/Users/Create.css" />
     }
 
-    <script>
+<script>
 
-        var modal = document.getElementById('id02');
+    var modal = document.getElementById('id02');
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
-    </script>
+    }
+</script>

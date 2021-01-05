@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudyC.Data;
 using StudyC.Models;
+
 
 namespace StudyC.Controllers
 {
@@ -56,13 +58,27 @@ namespace StudyC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,UserName,Password,Mail")] User user)
         {
-            if (ModelState.IsValid)
+            var q = from u in _context.User
+                    where user.Mail == u.Mail
+                    select u;
+
+            if (q.Count() > 0)
             {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewData["Error"] = "המשתמש קיים כבר";
+                
             }
-            return View(user);
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Add(user);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View();
+            }
+
+            return View();
         }
         public IActionResult Login()
         {
@@ -76,12 +92,22 @@ namespace StudyC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login([Bind("Id,UserName,Password,Mail")] User user)
         {
+            
             var q = from u in _context.User
                     where user.UserName == u.UserName && user.Password == u.Password
                     select u;
+            var v=from m in _context.User
+                  where user.UserName=="vered" && user.Password == m.Password
+                  select m;
+
             if (q.Count() > 0) 
             {
-                return RedirectToAction(nameof(Index));
+                if(v.Count() > 0)
+                {
+                    HttpContext.Session.SetString("user", v.First().UserName);
+                    return RedirectToAction("Index","Home");
+                }
+                return RedirectToAction("Index", "Home");
             }
             else
             {

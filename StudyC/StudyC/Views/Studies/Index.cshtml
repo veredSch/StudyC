@@ -25,7 +25,7 @@
                
                     @foreach (var item in Model)
                     {
-                        <a  class="bu" casp-action="Details" asp-route-id="@item.Id"><b>@Html.DisplayFor(modelItem => item.Subject)</b></a>
+                        <a  class="bu" asp-action="Details" asp-route-id="@item.Id"><b>@Html.DisplayFor(modelItem => item.Subject)</b></a>
 
                     }
                

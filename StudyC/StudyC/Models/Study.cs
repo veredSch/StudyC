@@ -12,10 +12,12 @@ namespace StudyC.Models
 
         [Required(ErrorMessage ="must input a subject")]
         [StringLength(300)]
+        [Display(Name = "נושא")]
         public String Subject { get; set; }
 
         [Required(ErrorMessage = "must input information")]
         [StringLength(20000)]
+        [Display(Name = "מידע")]
         public String Information { get; set; }
 
         public List<Question> Question { get; set; }

@@ -21,10 +21,10 @@
             <span class="navbar-toggle" id="js-navbar-toggle">
                 <i class="fas fa-bars"></i>
             </span>
-            <a href="home.html" class="logo"><img src="~/img/logo.png" width="60%" height="30%" alt="logo"></a>
+            <a asp-controller="Home" asp-action="Index" class="logo"><img src="~/img/logo.png" width="60%" height="30%" alt="logo"></a>
             <ul class="main-nav" id="js-menu">
                 <li>
-                    <a href="#" class="nav-links active">דף הבית</a>
+                    <a asp-controller="Home" asp-action="Index" class="nav-links ">דף הבית</a>
                 </li>
                 <li>
                     <a asp-controller="Home" asp-action="About" class="nav-links">אודות</a>

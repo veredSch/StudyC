@@ -53,8 +53,11 @@ namespace StudyC
 
             app.UseRouting();
 
-            app.UseAuthorization();
+
+
             app.UseSession();
+            app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

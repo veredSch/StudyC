@@ -15,7 +15,7 @@ namespace StudyC.Controllers
         private readonly StudyCContext _context;
 
         public StudiesController(StudyCContext context)
-        {
+        { 
             _context = context;
         }
 
@@ -45,8 +45,7 @@ namespace StudyC.Controllers
                 return NotFound();
             }
 
-            var study = await _context.Study.Include(x=> x.Question).ThenInclude(x => x.Options)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var study = await _context.Study.Include(x=> x.Question).ThenInclude(x => x.Options).FirstOrDefaultAsync(m => m.Id == id);
             if (study == null)
             {
                 return NotFound();
@@ -58,6 +57,7 @@ namespace StudyC.Controllers
         // GET: Studies/Create
         public IActionResult Create()
         {
+      
             return View();
         }
 
