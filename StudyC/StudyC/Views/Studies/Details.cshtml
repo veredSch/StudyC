@@ -4,51 +4,74 @@
     ViewData["Title"] = "Details";
 }
 
-@*<h1>Details</h1>*@
-
 <div>
-    @*<h4>Study</h4>
-        <hr />*@
-    <dl class="row">
-        @*<dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Subject)
-            </dt>*@
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Subject)
-        </dd>
-        @*<dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Information)
-            </dt>*@
-        <dd class="col-sm-10">
+    <dl class="text-sub">
+
+        <dt class="col-sm-10">
+            <u>@Html.DisplayFor(model => model.Subject)</u>
+        </dt>
+        <br>
+        <dt class="col-sm-10">
             @Html.DisplayFor(model => model.Information)
-        </dd>
+
+        </dt>
     </dl>
 </div>
-@foreach (var item in Model.Question)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
-            @foreach (var item2 in item.Options)
-            {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item2.Text)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item2.IsCorrect)
-            </td>           
-        </tr>
-    }
-            </td>
+<div class=all>
 
-            </tr>
+    <dl>
+        <dt>
+            <h4>
+                <b><u>תרגילים:</u></b>
+                <h4>
+        </dt>
+    </dl>
+    @foreach (var item in Model.Question)
+    {
+
+        
+            <li>
+                <b>@Html.DisplayFor(modelItem => item.Text)</b> 
+                
+</li>
+            
+        <br>
+        @foreach (var item2 in item.Options)
+        {
+
+
+            <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                <label dir="ltr" class="custom-control-label" for="customRadio1"><b>@Html.DisplayFor(modelItem => item2.Text)</b></label>
+            </div>
         }
-@*<div>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-        <a asp-action="Index">Back to List</a>
-    </div>*@
+        <br>
+    }
+</div>
+
+<!--next and previous buttons-->
+<table class="next-and-pre" aria-label="Page navigation example">
+    <tr class="pagination justify-content-end">
+        <td class="page-item">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true" style="color:black"><b>הקודם</b></a>
+        </td>
+        
+        <td class="page-item">
+            <a class="page-link" href="#" style="color:black"><b>הבא</b></a>
+        </td>
+    </tr>
+</table>
+            
 
 @section Css{
     <link rel="stylesheet" href="~/css/studies/details.css">
 }
+
+
+                       
+                       
+                        @*<td>
+                            <br>
+                            @Html.DisplayFor(modelItem => item2.IsCorrect)
+                        </td>*@
+      
