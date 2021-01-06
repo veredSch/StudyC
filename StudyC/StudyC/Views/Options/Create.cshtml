@@ -4,36 +4,29 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Option</h4>
-<hr />
-<div class="container-contact1">
-    <form asp-action="Create">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="Text" class="control-label"></label>
-            <input asp-for="Text" class="form-control" />
-            <span asp-validation-for="Text" class="text-danger"></span>
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="IsCorrect" /> @Html.DisplayNameFor(model => model.IsCorrect)
-            </label>
-        </div>
-
-
-        <div class="container-contact1-form-btn">
-            <input type="submit" value="צור" class="contact1-form-btn" />
-            <div>
-                <a class="contact1-form-btn" asp-controller="Questions" asp-action="Create">חזור</a>
+    <div class="container-contact1">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label"></label>
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
             </div>
-        </div>
-    </form>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsCorrect" /> @Html.DisplayNameFor(model => model.IsCorrect)
+                </label>
+            </div>
 
 
-    <div>
-        <a asp-action="Index">Back to List</a>
+            <div class="container-contact1-form-btn">
+                <input type="submit" value="צור" class="contact1-form-btn" />
+                <div>
+                    <a class="contact1-form-btn" asp-controller="Questions" asp-action="Create">חזור</a>
+                </div>
+            </div>
+        </form>
+
     </div>
 
     @section Scripts {
