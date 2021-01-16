@@ -28,6 +28,9 @@ namespace StudyC.Models
         [Display(Name = "כתובת מייל")]
         public String Mail { get; set; }
 
+        
+        public virtual bool RememberMe { get; set; }
+
         public List<UserStudy> UserStudy { get; set; }
 
     }

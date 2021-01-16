@@ -56,12 +56,17 @@ namespace StudyC.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,Password,Mail")] User user)
+        public async Task<IActionResult> Create([Bind("Id,UserName,Password,Mail,RememberMe")] User user)
         {
             var q = from u in _context.User
                     where user.Mail == u.Mail
                     select u;
+            if (user.RememberMe)
+            {
 
+                DateTime expiryDate = DateTime.Now.AddDays(30);
+
+            }
             if (q.Count() > 0)
             {
                 ViewData["Error"] = "המשתמש קיים כבר";
@@ -90,7 +95,7 @@ namespace StudyC.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login([Bind("Id,UserName,Password,Mail")] User user)
+        public async Task<IActionResult> Login([Bind("Id,UserName,Password,Mail,RememberMe")] User user)
         {
             
             var q = from u in _context.User
@@ -99,7 +104,12 @@ namespace StudyC.Controllers
             var v=from m in _context.User
                   where user.UserName=="vered" && user.Password == m.Password
                   select m;
-
+            if (user.RememberMe)
+            {
+               
+                DateTime expiryDate = DateTime.Now.AddDays(30);
+               
+            }
             if (q.Count() > 0) 
             {
                 if(v.Count() > 0)
@@ -116,10 +126,7 @@ namespace StudyC.Controllers
             return View();
 
         }
-
-
-
-
+    
 
 
         // GET: Users/Edit/5

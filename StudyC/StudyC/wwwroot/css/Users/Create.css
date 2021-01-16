@@ -2,6 +2,14 @@
 body {
     font-family: 'Assistant', sans-serif;
     direction: rtl !important;
+    width: 100%;
+    min-height: 100%;
+    background: #e090ff;
+    background: -webkit-linear-gradient(left, #ad76ec, #d98fdb);
+    background: -o-linear-gradient(left, #ad76ec,#d98fdb);
+    background: -moz-linear-gradient(left, #ad76ec, #d98fdb);
+    background: linear-gradient(left, #ad76ec, #d98fdb);
+
 }
 /*  input fields */
 input {
@@ -55,35 +63,15 @@ label {
     color: white;
 }
 
-    .cancelbtnLI:hover {
-        opacity: 0.8;
-    }
-
-/* Center the image and position the close button */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 20px 0;
-    position: relative;
-}
+.cancelbtnLI:hover 
+{
+    opacity: 0.8;
+ }
 .errorView{
     color:red;
     font-weight:bold;
 }
 
-.imgcontainer1 {
-    text-align: center;
-    margin: 24px 0 120px 0;
-    position: relative;
-}
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-img.avatarLI {
-    width: 40%;
-    border-radius: 50%;
-    margin: 0 0px 50px;
-}
 
 .containerLI {
     padding:0px 40px 0px 40px;
@@ -109,7 +97,6 @@ span.pswLI {
     float: right;
     margin-bottom: 20px;
 }
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -124,13 +111,15 @@ span.pswLI {
     padding-top: 60px;
 }
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    border: 1px solid #888;
-    width: 500px;
-    height: 650px; /* Could be more or less, depending on screen size */
+
+
+.contact1-form-title {
+    display: block;
+    font-size: 27px;
+    color: #568efd;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 30px;
 }
 
 /* The Close Button */
@@ -181,3 +170,35 @@ span.pswLI {
         transform: scale(1)
     }
 }
+
+.contact1 {
+    padding: 0px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-contact1 {
+    width: 600px;
+    height: 600px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    margin-right: 250px;
+    padding: 0px 130px 0px 148px;
+}
+
