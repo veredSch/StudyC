@@ -60,7 +60,7 @@ namespace StudyC.Controllers
             {
                 _context.Add(option);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create", "Options");
             }
             return View(option);
         }
@@ -78,7 +78,7 @@ namespace StudyC.Controllers
             {
                 return NotFound();
             }
-            return View(option);
+             return View(option);
         }
 
         // POST: Options/Edit/5

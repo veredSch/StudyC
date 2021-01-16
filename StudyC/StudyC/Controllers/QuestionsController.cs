@@ -56,13 +56,14 @@ namespace StudyC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,CorrectAnswer,Questions,NumOfOptions")] Question question)
         {
+           
             if (ModelState.IsValid)
             {
                 _context.Add(question);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(question);
+            return RedirectToAction("Create", "Questions");
         }
 
         // GET: Questions/Edit/5
