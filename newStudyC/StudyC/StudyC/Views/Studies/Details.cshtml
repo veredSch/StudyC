@@ -1,0 +1,90 @@
+﻿@model StudyC.Models.Study
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <dl class="text-sub">
+
+        <dt class="col-sm-10">
+            <u>@Html.DisplayFor(model => model.Subject)</u>
+        </dt>
+        <br>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.Information)
+
+        </dt>
+    </dl>
+</div>
+<div class=all>
+
+    <dl>
+        <dt>
+            <h4>
+                <b><u>תרגילים:</u></b>
+                <h4>
+        </dt>
+    </dl>
+    @foreach (var item in Model.Question)
+    {
+
+        
+            <li>
+                <b>@Html.DisplayFor(modelItem => item.Text)</b> 
+                
+</li>
+            
+        <br>
+        @foreach (var item2 in item.Options)
+        {
+
+
+            <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                <label dir="ltr" class="custom-control-label" for="customRadio1"><b>@Html.DisplayFor(modelItem => item2.Text)</b></label>
+            </div>
+        }
+        <br>
+    }
+</div>
+
+<!--next and previous buttons-->
+<table class="next-and-pre" aria-label="Page navigation example">
+    <tr class="pagination justify-content-end">
+        <td class="page-item">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true" style="color:black"><b>הקודם</b></a>
+        </td>
+
+        <td class="page-item">
+            <a class="page-link" href="#" style="color:black"><b>הבא</b></a>
+        </td>
+
+        
+
+            @if (Context.Session.GetString("user") != null)
+            {
+                <td class="page-item">
+                 <a class="page-link" asp-controller="Studies" asp-action="Create" tabindex="-1" aria-disabled="true" style="color:black"><b>צור עמוד חדש</b></a>
+                   </td>
+             <td class="page-item">
+            <a class="page-link" asp-controller="Studies" asp-action="Edit" asp-route-id="@Model.Id" style="color:black"><b>ערוך את העמוד</b></a>
+            </td>
+        }
+
+    </tr>
+</table>
+            
+
+@section Css{
+    <link rel="stylesheet" href="~/css/studies/details.css">
+}
+
+
+                       
+                       
+                        @*<td>
+                            <br>
+                            @Html.DisplayFor(modelItem => item2.IsCorrect)
+                        </td>*@
+      

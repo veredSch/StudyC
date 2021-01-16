@@ -1,0 +1,49 @@
+﻿body {
+    background-image: linear-gradient(to right, #ad76ec, white );
+}
+.text-sub {
+    margin-top: 70px;
+    padding-top: 20px;
+    font-size: 20px;
+    color: black;
+    direction: rtl;
+    text-align: right;
+    border:none;
+    
+}
+
+
+.question {
+    font-size: 20px;
+    font-size: 20px;
+    direction: ltr;
+}
+
+.body {
+    background-image: linear-gradient(to right, #ad76ec, white );
+    position: relative;
+}
+
+.all {
+    border: 4px solid #ad76ec;
+    margin: auto;
+    width: 80%;
+    text-align: right;
+    direction: rtl;
+    margin-top: 60px;
+    padding: 20px;
+}
+
+div {
+    background-color: white;
+}
+
+.custom-control {
+    padding: 15px;
+    border: 0.5px solid #c5cad3;
+}
+
+table{
+    margin: auto;
+    margin-top:20px;
+}

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<StudyC.Models.Study>
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="what-learn">
+                <img src="img/what.png" width="100%" height="100%" alt="what learn"></img>
+            </div>
+        </div>
+        <div class="col-sm-9" id="pe">
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+                    <a class="bu" asp-action="Details" asp-route-id="@item.Id"><b>@Html.DisplayFor(modelItem => item.Subject)</b></a>
+
+                }
+                @if(Context.Session.GetString("user")!=null)
+                {
+                    <a class="bu" asp-action="Users"><b>רשימת משתתפים</b></a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Css{
+    <link rel="stylesheet" href="~/css/studies/index.css">
+}

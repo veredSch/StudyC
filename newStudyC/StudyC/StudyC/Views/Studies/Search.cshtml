@@ -1,0 +1,44 @@
+﻿@model IEnumerable<StudyC.Models.Study>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<h1>Index</h1>*@
+
+<p>
+    <a asp-action="Search"></a>
+</p>
+<div class="container-contact1">
+    <span class="contact1-form-title">
+        תוצאות חיפוש
+    </span>
+    <table class="table">
+      
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Information)
+                        </td>*@
+                    <td>
+                        @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                        <a asp-action="Details" asp-route-id="@item.Id">עבור לדף</a>
+                        @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+    
+    @section Css{
+        <link rel="stylesheet" href="~/css/studies/container.css">
+    }
+

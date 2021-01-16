@@ -1,0 +1,49 @@
+﻿* {
+    font-family: 'Assistant', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: linear-gradient(to right, white,#ad76ec );
+}
+
+
+.bu {
+    padding-top: 55px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    border-radius: 50%;
+    background-image: linear-gradient(#b6b8c900,#f3f4f800),radial-gradient(circle at top left,#fd00da,#19d7f8);
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    line-height: 0px;
+    /*    top: 25px;*/
+}
+
+    .bu:hover {
+        background-color: #efedf3 ;
+        text-decoration: none;
+    }
+
+.what-learn {
+    margin-top: 150px;
+    margin-right: 0px;
+    width: 100%;
+ 
+}
+
+.wl {
+    padding-right: 50px;
+    padding-top: 100px;
+   /* padding-left: 100px;*/
+}
+
+
+#pe {
+    padding-top: 120px;
+    padding-right: 80px;
+}

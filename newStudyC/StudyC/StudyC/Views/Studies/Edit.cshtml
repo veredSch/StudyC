@@ -1,0 +1,73 @@
+﻿@model StudyC.Models.Study
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@*<h1>Edit</h1>
+
+<h4>Study</h4>
+<hr />*@
+
+    <div class="container-contact1">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Information" class="control-label"></label>
+                <input asp-for="Information" class="form-control" />
+                <span asp-validation-for="Information" class="text-danger"></span>
+            </div>
+           @if (Model.Question != null) {
+            @foreach (var item in Model.Question)
+            {
+                <div class="form-group">
+                    <label asp-for=@Html.DisplayFor(modelItem => item.Text) class="control-label"></label>
+                    <input asp-for=@Html.DisplayFor(modelItem => item.Text) class="form-control" />
+                    <span asp-validation-for=@Html.DisplayFor(modelItem => item.Text) class="text-danger"></span>
+                </div>
+
+                @foreach (var item2 in item.Options)
+                {
+                    <div class="form-group">
+                        <label asp-for=@Html.DisplayFor(modelItem => item2.Text) class="control-label"></label>
+                        <input asp-for=@Html.DisplayFor(modelItem => item2.Text) class="form-control" />
+                        <span asp-validation-for=@Html.DisplayFor(modelItem => item2.Text) class="text-danger"></span>
+                    </div>
+
+                }
+            }
+
+            }
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="שמור" class="btn btn-primary" />
+            </div>
+            <div>
+                <a class="contact1-form-btn" asp-action="Index">חזור</a>
+            </div>
+        </form>
+    </div>
+
+
+@*<div>
+    <a asp-action="Index">חזרה</a>
+</div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+@section Css{
+    <link rel="stylesheet" href="~/css/studies/Create.css" />
+}

@@ -1,0 +1,62 @@
+﻿@model StudyC.Models.Contact
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+
+<div class="contact1">
+
+    <div class="container-contact1">
+
+        <div class="contact1-pic js-tilt" data-tilt>
+            <img src="~/img/img-01.png" alt="IMG">
+        </div>
+        <form asp-action="Create" class="contact1-form validate-form">
+            <span class="contact1-form-title">
+                צור קשר
+            </span>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="wrap-input1 validate-input">
+                @*<label asp-for="UserName" class="control-label"></label>*@
+                <input asp-for="UserName" class="input1" placeholder="שם" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            @*<div class="wrap-input1 validate-input">
+                    <label asp-for="Mobile" class="control-label"></label>
+                    <input asp-for="Mobile" class="input1" placeholder=""/>
+                    <span asp-validation-for="Mobile" class="shadow-input1"></span>
+                </div>*@
+            <div class="wrap-input1 validate-input">
+                @*<label asp-for="Mail" class="control-label"></label>*@
+                <input asp-for="Mail" class="input1" placeholder="מייל" />
+                <span asp-validation-for="Mail" class="text-danger"></span>
+            </div>
+            <div class="wrap-input1 validate-input">
+                @*<label asp-for="Subject" class="control-label"></label>*@
+                <input asp-for="Subject" class="input1" placeholder="נושא" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="wrap-input1 validate-input">
+                @*<label asp-for="Message" class="control-label"></label>*@
+                <textarea asp-for="Message" class="input1" placeholder="כתוב הודעה"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="container-contact1-form-btn">
+                <input type="submit" value="שלח" class="contact1-form-btn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+
+@section Css{
+    <link rel="stylesheet" href="~/css/Contacts/Create.css">
+}
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
