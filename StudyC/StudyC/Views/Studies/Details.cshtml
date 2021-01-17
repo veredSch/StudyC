@@ -37,9 +37,19 @@
 
     @foreach (var item2 in item.Options)
         {
-    <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio2" onclick="color();" name="customRadio" class="custom-control-input">
-        <label dir="ltr" class="custom-control-label" for="customRadio2"><b>@Html.DisplayFor(modelItem => item2.Text)</b></label>
+    
+        string field = "customRadio" + item.Id;
+        string field2 = "customRadioId" + item2.Id;
+
+        string css = "custom-control custom-radio";
+        if (item2.IsCorrect)
+        {
+            css += " correct";
+        }
+    
+    <div class="@css">
+        <input type="radio" id="@field2" onclick="color();" name="@field" class="custom-control-input">
+        <label dir="ltr" class="custom-control-label" for="@field2"><b>@Html.DisplayFor(modelItem => item2.Text)</b></label>
     </div>
         }
     <br>
@@ -80,7 +90,7 @@
 {
     <script>
         function color() {
-            document.getElementById('customRadio2').value;
+            //document.getElementById('customRadio2').value;
         }
     </script>
 }
