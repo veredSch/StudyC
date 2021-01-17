@@ -1,4 +1,5 @@
 ﻿@model StudyC.Models.Study
+
 @using Microsoft.AspNetCore.Http
 @{
     ViewData["Title"] = "Details";
@@ -28,19 +29,20 @@
     </dl>
     @foreach (var item in Model.Question)
     {
-            <li>
-                <b>@Html.DisplayFor(modelItem => item.Text)</b>       
-            </li>
-            
-        <br>
-        @foreach (var item2 in item.Options)
+    <li>
+        <b>@Html.DisplayFor(modelItem => item.Text)</b>
+    </li>
+
+    <br>
+
+    @foreach (var item2 in item.Options)
         {
-            <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label dir="ltr" class="custom-control-label" for="customRadio2"><b>@Html.DisplayFor(modelItem => item2.Text)</b></label>
-            </div>
+    <div class="custom-control custom-radio">
+        <input type="radio" id="customRadio2" onclick="color();" name="customRadio" class="custom-control-input">
+        <label dir="ltr" class="custom-control-label" for="customRadio2"><b>@Html.DisplayFor(modelItem => item2.Text)</b></label>
+    </div>
         }
-        <br>
+    <br>
     }
 </div>
 
@@ -55,31 +57,38 @@
             <a class="page-link" asp-action="Details" asp-route-id="@Model.Id" style="color:black"><b>הבא</b></a>
         </td>
 
-        
 
-            @if (Context.Session.GetString("user") != null)
+
+        @if (Context.Session.GetString("user") != null)
             {
-                <td class="page-item">
-                 <a class="page-link" asp-controller="Studies" asp-action="Create" tabindex="-1" aria-disabled="true" style="color:black"><b>צור עמוד חדש</b></a>
-                   </td>
-             <td class="page-item">
+        <td class="page-item">
+            <a class="page-link" asp-controller="Studies" asp-action="Create" tabindex="-1" aria-disabled="true" style="color:black"><b>צור עמוד חדש</b></a>
+        </td>
+        <td class="page-item">
             <a class="page-link" asp-controller="Studies" asp-action="Edit" asp-route-id="@Model.Id" style="color:black"><b>ערוך את העמוד</b></a>
-            </td>
+        </td>
         }
 
     </tr>
 </table>
-            
+
 
 @section Css{
     <link rel="stylesheet" href="~/css/studies/details.css">
 }
+@section Scripts
+{
+    <script>
+        function color() {
+            document.getElementById('customRadio2').value;
+        }
+    </script>
+}
 
 
-                       
-                       
-                        @*<td>
-                            <br>
-                            @Html.DisplayFor(modelItem => item2.IsCorrect)
-                        </td>*@
-      
+
+@*<td>
+        <br>
+        @Html.DisplayFor(modelItem => item2.IsCorrect)
+    </td>*@
+

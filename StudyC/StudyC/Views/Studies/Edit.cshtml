@@ -28,9 +28,9 @@
             @foreach (var item in Model.Question)
             {
                 <div class="form-group">
-                    <label asp-for=@Html.DisplayFor(modelItem => item.Text) class="control-label"></label>
-                    <input asp-for=@Html.DisplayFor(modelItem => item.Text) class="form-control" />
-                    <span asp-validation-for=@Html.DisplayFor(modelItem => item.Text) class="text-danger"></span>
+                    <label asp-for=@Html.EditorFor(modelItem => item.Text) class="control-label"></label>
+                    <input asp-for=@Html.EditorFor(modelItem => item.Text) class="form-control" />
+                    <span asp-validation-for=@Html.ValidationMessageFor(modelItem => item.Text) class="text-danger"></span>
                 </div>
 
                 @foreach (var item2 in item.Options)
@@ -45,11 +45,6 @@
             }
 
             }
-
-
-
-
-
             <div class="form-group">
                 <input type="submit" value="שמור" class="btn btn-primary" />
             </div>
