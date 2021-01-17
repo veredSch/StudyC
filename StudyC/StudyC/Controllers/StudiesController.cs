@@ -104,7 +104,7 @@ namespace StudyC.Controllers
             {
                 return NotFound();
             }
-
+            var s = await _context.Study.Include(x => x.Question).ThenInclude(x => x.Options).FirstOrDefaultAsync(m => m.Id == id);
             if (ModelState.IsValid)
             {
                 try
@@ -123,9 +123,9 @@ namespace StudyC.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return View(s);
             }
-            return View(study);
+            return View(s);
         }
 
         // GET: Studies/Delete/5

@@ -29,7 +29,7 @@ namespace StudyC.Models
         public String Mail { get; set; }
 
         
-        public virtual bool RememberMe { get; set; }
+        public bool RememberMe { get; set; }
 
         public List<UserStudy> UserStudy { get; set; }
 

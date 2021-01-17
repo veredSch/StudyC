@@ -23,7 +23,8 @@
                 <input asp-for="Information" class="form-control" />
                 <span asp-validation-for="Information" class="text-danger"></span>
             </div>
-           @if (Model.Question != null) {
+           @if (Model.Question != null) 
+           {
             @foreach (var item in Model.Question)
             {
                 <div class="form-group">

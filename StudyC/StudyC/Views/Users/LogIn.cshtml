@@ -20,7 +20,7 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
 
                 <label id="checkLI">
-                    <input type="checkbox" checked="checked" ID="chkRememberMe" name="remember"> זכור אותי
+                    <input type="checkbox" checked="checked" asp-for="RememberMe" name="remember"> זכור אותי
                 </label>
                 <div class="form-group">
                     <input type="submit" value="התחבר" class="buttonLI" />
@@ -31,8 +31,9 @@
                     <div class="errorView">@ViewData["Error"]</div>
 
                 }
-                <span class="pswLI">שכחת <a class="link_buttonLI" onclick="alert('סיסמא חלופית נשלחה למייל')">סיסמא?</a></span>
+                <span class="pswLI">שכחת <a class="link_buttonLI" herf="#" onclick="alert('סיסמא חלופית נשלחה למייל')">סיסמא?</a></span>
             </div>
+            <br />
             <div >
 
                 <span class="pswLI">
